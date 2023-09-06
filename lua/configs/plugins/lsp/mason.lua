@@ -6,10 +6,9 @@ local function setup()
     })
     require('mason-lspconfig').setup({
         ensure_installed = {
-            'lua_ls', 'rust_analyzer', 'clangd',
+            'lua_ls', 'rust_analyzer',
         },
     })
-    
     -- setup lsp servers
     local default_handler = function(server)
         -- See :help lspconfig-setup
@@ -20,6 +19,10 @@ local function setup()
 
     require('mason-lspconfig').setup_handlers({
         default_handler,
+    })
+
+    require('lspconfig').clangd.setup({
+        capabilities = require('cmp_nvim_lsp').default_capabilities()
     })
 
 end
@@ -35,4 +38,4 @@ return {
             setup()
         end,
     },
-} 
+}
