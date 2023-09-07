@@ -3,7 +3,10 @@ local _M = {}
 function _M.setup()
     local cmp = require('cmp')
     cmp.setup({
-        -- TODO: Add () after functions using nvim-autopairs
+        experimental = {
+            ghost_text = true,
+        },
+
         enabled = function()
             local ctx = require('cmp.config.context')
             if vim.api.nvim_get_mode().mode == 'c' then
@@ -37,7 +40,7 @@ function _M.setup()
             { name = 'nvim_lsp', },
             { name = 'luasnip', },
         }, {
-            { name = 'buffer', }, 
+            { name = 'buffer', },
         }),
     })
 
@@ -76,7 +79,13 @@ return {
         },
         config = function()
             _M.setup()
-        end
+        end,
+
+        opts = {
+            experimental = {
+                ghost_text = true,
+            },
+        },
     },
 }
 

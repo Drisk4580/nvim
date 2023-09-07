@@ -1,8 +1,9 @@
 local function setup()
+    local api = vim.api
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 
-    vim.api.nvim_create_autocmd('LspAttach', {
+    api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
         callback = function(ev)
             local opts = { buffer = ev.buf }
@@ -21,6 +22,15 @@ local function setup()
                 vim.lsp.buf.format { async = true }
             end, opts)
         end,
+    })
+    local fmtGroup = api.nvim_create_augroup('fmtGroup', { clear = true, })
+    api.nvim_create_autocmd('BufWritePre', {
+        group = fmtGroup,
+        callback = function()
+            vim.lsp.buf.format {
+                async = false,
+            }
+        end
     })
 end
 
