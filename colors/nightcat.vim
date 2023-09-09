@@ -24,12 +24,11 @@ set background=dark
 let g:nightcat_bg = '#041c24'
 
 let g:nightcat_gui = {}
-
-let g:nightcat_gui[0]  = '#02141a' " background
+let g:nightcat_gui[0]  = '#2a4242' " background
 
 let g:nightcat_gui[1]  = '#2F2A38' " normal black
-let g:nightcat_gui[2]  = '#011717' " medium black
-let g:nightcat_gui[3]  = '#001f1f' " bright black
+let g:nightcat_gui[2]  = '#2a4242' " medium black
+let g:nightcat_gui[3]  = '#213636' " bright black
 
 let g:nightcat_gui[4]  = '#deffe9' " foreground
 let g:nightcat_gui[5]  = '#e6ffee' " normal white
@@ -56,7 +55,7 @@ let g:nightcat_gui[18] = '#236955'
 let g:nightcat_gui[19] = '#85f8bf'
 let g:nightcat_gui[20] = '#041921'
 
-let g:nightcat_gui["3_bright"] = '#7E7490'
+let g:nightcat_gui["3_bright"] = '#2a4242'
 let g:nightcat_gui_3_bright = g:nightcat_gui["3_bright"]
 
 let g:nightcat_term = {}
@@ -292,7 +291,7 @@ call s:hi('Conceal', g:nightcat_gui[14], g:nightcat_gui[18], 'NONE', '', '', '')
 "+ Language Base Groups +
 "+----------------------+
 call s:hi('Boolean', g:nightcat_gui[9], '', g:nightcat_term[9], '', '', '')
-call s:hi('Character', g:nightcat_gui[14], '', g:nightcat_term[14], '', '', '')
+call s:hi('Character', g:nightcat_gui[19], '', g:nightcat_term[14], '', '', '')
 call s:hi('Comment', g:nightcat_gui["3_bright"], '', g:nightcat_term[3], '', s:italicize_comments, '')
 call s:hi('Conditional', g:nightcat_gui[9], '', g:nightcat_term[9], '', '', '')
 call s:hi('Constant', g:nightcat_gui[4], '', 'NONE', '', '', '')
@@ -314,7 +313,7 @@ call s:hi('SpecialChar', g:nightcat_gui[13], '', g:nightcat_term[13], '', '', ''
 call s:hi('SpecialComment', g:nightcat_gui[8], '', g:nightcat_term[8], '', s:italicize_comments, '')
 call s:hi('Statement', g:nightcat_gui[9], '', g:nightcat_term[9], '', '', '')
 call s:hi('StorageClass', g:nightcat_gui[9], '', g:nightcat_term[9], '', '', '')
-call s:hi('String', g:nightcat_gui[14], '', g:nightcat_term[14], '', '', '')
+call s:hi('String', g:nightcat_gui[19], '', g:nightcat_term[14], '', '', '')
 call s:hi('Structure', g:nightcat_gui[9], '', g:nightcat_term[9], '', '', '')
 call s:hi('Tag', g:nightcat_gui[4], '', '', '', '', '')
 call s:hi('Todo', g:nightcat_gui[13], 'NONE', g:nightcat_term[13], 'NONE', '', '')
