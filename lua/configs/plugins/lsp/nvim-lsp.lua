@@ -1,4 +1,6 @@
 local function setup()
+    require('neodev').setup({})
+
     local api = vim.api
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
@@ -42,4 +44,12 @@ return {
             setup()
         end
     },
+    {
+        'folke/neodev.nvim',
+        event = { 'BufReadPre', 'BufNewFile' },
+        opts = {},
+        config = function()
+            setup()
+        end,
+    }
 }

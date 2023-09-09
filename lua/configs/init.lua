@@ -10,14 +10,11 @@ M.options = {
     termguicolors = true,
     expandtab = true,
     ignorecase = true,
-    list = true,
 }
 
 function M.setup()
     opt.tabstop = M.indent
     opt.shiftwidth = M.indent
-
-    opt.listchars:append "space:⋅"
 
     for option, value in pairs(M.options) do
         opt[option] = value
@@ -29,6 +26,8 @@ function M.setup()
     local plugins = require('configs.plugins')
     plugins:bootstrap()
     plugins.load()
+
+    vim.cmd.colo('nightcat')
 
     vim.fn.sign_define("DiagnosticSignError",
         { text = " ", texthl = "DiagnosticSignError" })

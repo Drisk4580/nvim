@@ -35,7 +35,6 @@ return {
         opts = {
             show_current_context = true,
             show_current_context_start = true,
-            space_char_blankline = " ",
         },
         dependencies = {
             'nvim-treesitter/nvim-treesitter',
@@ -111,8 +110,14 @@ return {
             require('neogit').setup()
         end,
         keys = {
-            { 'n', '<leader>gc', util.git({ 'commit', kind = 'tab' }), {} },
-            { 'n', '<leader>go', util.git({ kind = 'tab', }),          {} },
+            { '<leader>gc', util.git({ 'commit', kind = 'tab' }), {} },
+            { '<leader>go', util.git({ kind = 'tab', }),          {} },
         },
     },
+    {
+        'akinsho/bufferline.nvim',
+        version = "*",
+        config = true,
+        dependencies = 'nvim-tree/nvim-web-devicons'
+    }
 }

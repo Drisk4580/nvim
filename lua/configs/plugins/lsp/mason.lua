@@ -1,4 +1,5 @@
 local function setup()
+    local lspconfig = require('lspconfig')
     require('mason').setup({
         ui = {
             border = 'single',
@@ -21,10 +22,20 @@ local function setup()
         default_handler,
     })
 
-    require('lspconfig').clangd.setup({
+    -- manually setup clangd since it can't be installed using mason
+    lspconfig.clangd.setup({
         capabilities = require('cmp_nvim_lsp').default_capabilities()
     })
 
+    lspconfig.lua_ls.setup({
+        settings = {
+            Lua = {
+                completion = {
+                    callSnippet = true,
+                },
+            },
+        },
+    })
 end
 
 return {
