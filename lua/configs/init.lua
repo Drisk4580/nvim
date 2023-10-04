@@ -27,7 +27,7 @@ function M.setup()
     plugins:bootstrap()
     plugins.load()
 
-    vim.cmd.colo('nightcat')
+    -- vim.cmd.colo('nightcat')
 
     vim.fn.sign_define("DiagnosticSignError",
         { text = " ", texthl = "DiagnosticSignError" })
