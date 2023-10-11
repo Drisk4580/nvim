@@ -13,7 +13,13 @@ return {
         lazy = false,
         priority = 1000,
         config = function()
-            require('onedark').load()
+            -- require('onedark').load()
+        end
+    },
+    {
+        'AlphaTechnolog/pywal.nvim',
+        config = function()
+            require('pywal').setup()
         end
     }
 }
