@@ -23,9 +23,9 @@ local function setup()
     })
 
     -- manually setup clangd since it can't be installed using mason
-    lspconfig.clangd.setup({
-        capabilities = require('cmp_nvim_lsp').default_capabilities()
-    })
+    --lspconfig.clangd.setup({
+    --    capabilities = require('cmp_nvim_lsp').default_capabilities()
+    --})
 
     lspconfig.lua_ls.setup({
         settings = {

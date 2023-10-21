@@ -10,6 +10,9 @@ M.options = {
     termguicolors = true,
     expandtab = true,
     ignorecase = true,
+    colorcolumn = '80',
+    scl = 'yes',
+    background = 'dark'
 }
 
 function M.setup()
@@ -27,7 +30,7 @@ function M.setup()
     plugins:bootstrap()
     plugins.load()
 
-    -- vim.cmd.colo('nightcat')
+    vim.cmd.colo('nightcat')
 
     vim.fn.sign_define("DiagnosticSignError",
         { text = " ", texthl = "DiagnosticSignError" })
@@ -37,6 +40,11 @@ function M.setup()
         { text = " ", texthl = "DiagnosticSignInfo" })
     vim.fn.sign_define("DiagnosticSignHint",
         { text = "󰌵", texthl = "DiagnosticSignHint" })
+
+    for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
+        vim.api.nvim_set_hl(0, group, {})
+    end
+
 end
 
 return M
