@@ -30,7 +30,7 @@ function M.setup()
     plugins:bootstrap()
     plugins.load()
 
-    vim.cmd.colo('nightcat')
+    vim.cmd.colo('everforest')
 
     vim.fn.sign_define("DiagnosticSignError",
         { text = " ", texthl = "DiagnosticSignError" })
@@ -41,10 +41,16 @@ function M.setup()
     vim.fn.sign_define("DiagnosticSignHint",
         { text = "󰌵", texthl = "DiagnosticSignHint" })
 
+    vim.api.nvim_set_hl(0, "Normal", {})
+    vim.api.nvim_set_hl(0, "NormalFloat", {})
+    vim.api.nvim_set_hl(0, "NonText", {})
+    vim.api.nvim_set_hl(0, "LineNr", {})
+    vim.api.nvim_set_hl(0, "SignColumn", {})
+    vim.api.nvim_set_hl(0, "Tab", {})
+
     for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
         vim.api.nvim_set_hl(0, group, {})
     end
-
 end
 
 return M

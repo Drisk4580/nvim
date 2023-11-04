@@ -29,11 +29,9 @@ local function setup()
     api.nvim_create_autocmd('BufWritePre', {
         group = fmtGroup,
         callback = function()
-            if vim.inspect(vim.lsp.get_active_clients()) == not {} then
-                vim.lsp.buf.format {
-                    async = false,
-                }
-            end
+            vim.lsp.buf.format {
+                async = false,
+            }
         end
     })
 end
